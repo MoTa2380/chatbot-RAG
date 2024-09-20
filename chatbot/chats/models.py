@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 
 # Create your models here.
 
@@ -21,7 +20,6 @@ class Message(models.Model):
     prompt = models.TextField()
     context = models.TextField(blank=True)
     response = models.TextField()
-    
 
     def __str__(self) -> str:
         return f"Message at {self.timestamp} in session {self.session.session_id}"

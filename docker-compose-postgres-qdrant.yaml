@@ -1,0 +1,20 @@
+services:
+  postgresql:
+    container_name: postgres-chatbot-RAG
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=chatbot-RAG
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+
+  qdrant:
+    container_name: qdrant-chatbot-RAG
+    image: qdrant/qdrant:latest
+    ports:
+      - 6333:6333
+    volumes:
+      - ./data/qdrant:/qdrant/storaged
